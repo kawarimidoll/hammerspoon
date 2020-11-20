@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - name: IRC notification
-        uses: Gottox/irc-message-action@v1
+        uses: Gottox/irc-message-action@v1.1
         with:
           channel: '#hammerspoon'
           nickname: 'HSGHA'
