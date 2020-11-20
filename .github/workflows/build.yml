@@ -37,6 +37,8 @@ jobs:
         run: make build/html
 
   notify:
+    runs-on: ubuntu-latest
+
     steps:
       - name: IRC notification
         uses: Gottox/irc-message-action@v1
