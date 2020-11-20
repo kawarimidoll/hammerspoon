@@ -10,6 +10,8 @@ jobs:
     continue-on-error: true
 
     steps:
+      continue-on-error: true
+
       - uses: actions/checkout@v2
       - name: Install Gem dependencies
         run: gem install xcpretty xcpretty-travis-profiler-formatter
@@ -56,9 +58,7 @@ jobs:
           name: test_conclusion
       - name: Read test result
         id: test_conclusion
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./test_conclusion.txt
+        run: cat test_conclusion.txt
       - name: IRC notification
         uses: Gottox/irc-message-action@v1.1
         with:
