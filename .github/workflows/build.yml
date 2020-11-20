@@ -24,6 +24,7 @@ jobs:
 #          scheme: Release
 #          action: build
       - name: Test
+        id: test
         uses: sersoft-gmbh/xcodebuild-action@v1
         continue-on-error: true
         with:
