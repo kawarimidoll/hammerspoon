@@ -37,6 +37,7 @@ jobs:
         run: make build/html
 
   notify:
+    steps:
       - name: IRC notification
         uses: Gottox/irc-message-action@v1
         with:
