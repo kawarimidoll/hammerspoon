@@ -10,8 +10,6 @@ jobs:
     continue-on-error: true
 
     steps:
-      continue-on-error: true
-
       - uses: actions/checkout@v2
       - name: Install Gem dependencies
         run: gem install xcpretty xcpretty-travis-profiler-formatter
@@ -27,6 +25,7 @@ jobs:
 #          action: build
       - name: Test
         uses: sersoft-gmbh/xcodebuild-action@v1
+        continue-on-error: true
         with:
           workspace: Hammerspoon.xcworkspace
           scheme: Release
