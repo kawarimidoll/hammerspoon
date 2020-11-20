@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-11.0
 
     steps:
-      - uses: actions/checkout@v2A
+      - uses: actions/checkout@v2
       - name: Install Gem dependencies
         run: gem install xcpretty xcpretty-travis-profiler-formatter
       - name: Install Python dependencies
