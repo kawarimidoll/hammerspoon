@@ -65,26 +65,31 @@
 
 - (void)testFindDeviceByUID {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testFindInputByName {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testFindInputByUID {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testFindOutputByName {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testFindOutputByUID {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
@@ -154,6 +159,7 @@
 
 - (void)testWatcherCallback {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:5.0];
     BOOL result = NO;
 
@@ -169,47 +175,56 @@
 
 - (void)testInputSupportsDataSources {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testOutputSupportsDataSources {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testCurrentInputDataSource {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testCurrentOutputDataSource {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testAllInputDataSources {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testAllOutputDataSources {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 // hs.audiodevice.datasource methods
 - (void)testDataSourceToString {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testDataSourceName {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 
 - (void)testDataSourceSetDefault {
     SKIP_IN_TRAVIS()
+    SKIP_IN_GITHUB_ACTIONS()
     RUN_LUA_TEST()
 }
 @end
