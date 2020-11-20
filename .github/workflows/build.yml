@@ -7,6 +7,7 @@ on:
 jobs:
   test:
     runs-on: macos-11.0
+    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v2
@@ -38,6 +39,7 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - name: IRC notification
