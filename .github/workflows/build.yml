@@ -28,7 +28,7 @@ jobs:
           workspace: Hammerspoon.xcworkspace
           scheme: Release
           enable-code-coverage: true
-          action: built-for-testing test
+          action: build-for-testing test
 
       - name: Make web docs
         run: make build/html
