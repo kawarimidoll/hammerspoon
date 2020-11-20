@@ -19,6 +19,11 @@ jobs:
       - name: Make docs
         run: make docs
       - name: Build
-        run: ./scripts/travis-build.sh build
+        uses: sersoft-gmbh/xcodebuild-action@v1
+        with:
+          workspace: Hammerspoon.xcworkspace
+          scheme: Release
+          enable-code-coverage: true
+          action: build
       - name: Make web docs
         run: make build/html
