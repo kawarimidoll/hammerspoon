@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: macos-11.0
 
     steps:
@@ -29,6 +29,18 @@ jobs:
           scheme: Release
           enable-code-coverage: true
           action: build-for-testing test
-
+      - name: Upload test coverage
+        uses: codecov/codecov-action@v1
+        with:
+          verbose: true
       - name: Make web docs
         run: make build/html
+
+  notify:
+      - name: IRC notification
+        uses: Gottox/irc-message-action@v1
+        with:
+          channel: '#hammerspoon'
+          nickname: 'HSGHA'
+          message: |-
+            ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }} - Tests: ${{ steps.test.conclusion }}
