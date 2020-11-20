@@ -1,10 +1,8 @@
-name: CI
+name: CI build&test
 
 on:
   push:
   pull_request:
-  schedule:
-    - cron: '0 0 * * *' # nightly
 
 jobs:
   build:
@@ -18,19 +16,19 @@ jobs:
         run: pip install --user -r requirements.txt
       - name: Make docs
         run: make docs
-      - name: Build
-        uses: sersoft-gmbh/xcodebuild-action@v1
-        with:
-          workspace: Hammerspoon.xcworkspace
-          scheme: Release
-          action: build
+#      - name: Build
+#        uses: sersoft-gmbh/xcodebuild-action@v1
+#        with:
+#          workspace: Hammerspoon.xcworkspace
+#          scheme: Release
+#          action: build
       - name: Test
         uses: sersoft-gmbh/xcodebuild-action@v1
         with:
           workspace: Hammerspoon.xcworkspace
           scheme: Release
           enable-code-coverage: true
-          action: test
+          action: built-for-testing test
 
       - name: Make web docs
         run: make build/html
