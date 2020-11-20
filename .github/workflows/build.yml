@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *' # nightly
+
+jobs:
+  build:
+    runs-on: macos-11.0
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: ./scripts/travis build
