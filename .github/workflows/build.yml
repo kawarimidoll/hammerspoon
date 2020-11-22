@@ -22,12 +22,6 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           verbose: true
-
-  notify:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
       - name: IRC notification
         uses: Gottox/irc-message-action@v1.1
         with:
