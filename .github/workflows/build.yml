@@ -18,13 +18,6 @@ jobs:
       - name: Run tests
         id: test
         run: ./scripts/github-ci-test.sh
-      - name: Store test result
-        run: echo ${{ steps.test.conclusion }} >test_conclusion.txt
-      - name: Upload test result
-        uses: actions/upload-artifact@v2
-        with:
-          name: test_conclusion
-          path: test_conclusion.txt
       - name: Upload test coverage
         uses: codecov/codecov-action@v1
         with:
@@ -35,18 +28,10 @@ jobs:
     needs: test
 
     steps:
-      - name: Download test result
-        uses:
-          actions/download-artifact@v2
-        with:
-          name: test_conclusion
-      - name: Read test result
-        id: test_conclusion
-        run: cat test_conclusion.txt
       - name: IRC notification
         uses: Gottox/irc-message-action@v1.1
         with:
           channel: '#hammerspoon'
           nickname: 'HSGHA'
           message: |-
-            ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }} - Tests: ${{ steps.test_conclusion.outputs.content }}
+            ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }} - Tests: ${{ steps.test.outputs.test_result }}
