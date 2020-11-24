@@ -29,3 +29,4 @@ jobs:
           nickname: 'HSGHA'
           message: |-
             ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }} - Tests: ${{ steps.test.outputs.test_result }}
+        if: ${{ always() }}
