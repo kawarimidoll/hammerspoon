@@ -7,14 +7,13 @@ on:
 jobs:
   test:
     runs-on: macos-11.0
-    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
         run: ./scripts/github-ci-pre.sh
       - name: Build for testing
-        run: ./scripts/github-ci-build.sh
+        run: ./scripts/github-ci-testbuild.sh
       - name: Run tests
         id: test
         run: ./scripts/github-ci-test.sh
@@ -22,6 +21,7 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           verbose: true
+        if: ${{ always() }}
       - name: IRC notification
         uses: Gottox/irc-message-action@v1.1
         with:
