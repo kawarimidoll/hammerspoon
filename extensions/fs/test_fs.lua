@@ -318,9 +318,6 @@ function testVolumes()
     end
     if event == hs.fs.volume.didRename then
       -- NOTE: in this case, `info` is returned as a NSURL object:
-
-        assertIsEqual(hs.inspect(info), "Something")
-
       newPath = info.path and info.path.filePath:match("(/Volumes/"..ramdiskRename..")/?$")
       if not newPath then return end
       hs.fs.volume.eject(newPath)
